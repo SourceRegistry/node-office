@@ -1,6 +1,6 @@
 {
   "name": "@sourceregistry/node-office",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Typescript parser for docx, pptx, xlsx (WORK IN PROGRESS)",
   "main": "./dist/index.es.js",
   "module": "./dist/index.es.js",
