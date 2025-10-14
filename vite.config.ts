@@ -11,7 +11,7 @@ export default defineConfig({
             fileName: (format) => `index.${format}.js`
         },
         rollupOptions: {
-            external: ["crypto"],
+            external: ["zlib", "fs"],
         },
         sourcemap: true,
         target: 'node22'
