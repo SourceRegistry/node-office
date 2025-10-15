@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/SourceRegistry/node-office/compare/v1.0.0...v1.1.0) (2025-10-15)
+
+
+### Features
+
+* add fromPath and fromBlob on ZipReader and moved to OOXML namespace ([1e64d3f](https://github.com/SourceRegistry/node-office/commit/1e64d3f739f70fa66b39d24ac2bbebe12ac1c754))
+
 # 1.0.0 (2025-10-14)
 
 
