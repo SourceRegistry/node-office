@@ -9,9 +9,9 @@ A TypeScript library for parsing Office Open XML (`.docx`, `.pptx`, `.xlsx`) doc
 - **DOCX**: Extracts text split by explicit page breaks (`<w:br w:type="page"/>`) and embedded images (as Base64 with MIME type).
 - **PPTX**: Extracts slide text, speaker notes, and images (Base64 + MIME type), with slides correctly ordered by filename (`slide1.xml`, `slide2.xml`, etc.).
 - **XLSX**: Basic sheet-by-sheet text extraction (tab-separated values).
-- Structured output using `ContentComplex` for rich content handling:
+- Structured output using `Content` for rich content handling:
   ```ts
-  type ContentComplex =
+  type Content =
     | { type: 'text'; data: string }
     | { type: 'image'; mimeType: string; data: string } // Base64
     | { type: 'note'; data: string }

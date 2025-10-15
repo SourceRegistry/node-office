@@ -83,17 +83,9 @@ export class ZipConsts {
 }
 
 export class ZipReader {
-    private readonly buffer: Buffer;
 
-    constructor(filePath: string) {
-        const fd = fs.openSync(filePath, 'r');
-        try {
-            const size = fs.fstatSync(fd).size;
-            this.buffer = Buffer.alloc(size);
-            fs.readSync(fd, this.buffer, 0, size, 0);
-        } finally {
-            fs.closeSync(fd);
-        }
+    constructor(private readonly buffer: Buffer) {
+
     }
 
     listEntries(): string[] {
@@ -166,5 +158,21 @@ export class ZipReader {
             }
         }
         throw new Error('Invalid ZIP: End of Central Directory not found');
+    }
+
+    public static fromPath(filePath: string){
+        const fd = fs.openSync(filePath, 'r');
+        try {
+            const size = fs.fstatSync(fd).size;
+            const buffer = Buffer.alloc(size);
+            fs.readSync(fd, buffer, 0, size, 0);
+            return new ZipReader(buffer);
+        } finally {
+            fs.closeSync(fd);
+        }
+    }
+
+    public static async fromBlob(input: Blob){
+        return new ZipReader(Buffer.from(await input.arrayBuffer()));
     }
 }

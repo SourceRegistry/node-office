@@ -1,6 +1,6 @@
-import { parseOoxmlToDocument } from '../src';
+import OOXML from '../src';
 
-const doc = parseOoxmlToDocument('res/test.docx');
+const doc = OOXML.parseFromPath('res/test.docx');
 
 console.log('Type:', doc.type);
 console.log('Metadata:', doc.metadata);
